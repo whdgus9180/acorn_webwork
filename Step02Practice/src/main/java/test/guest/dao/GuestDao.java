@@ -29,10 +29,10 @@ public class GuestDao {
       return dao;
    }
    
-   //회원 목록을 리턴하는 메소드
+   //전체글의 리턴하는 메소드
    public List<GuestDto> getList(){
 	   
-	   //회원 목록을 담을 객체 미리 생성하기 
+	   //글목록을 담을 객체를 미리 생성
        List<GuestDto> list=new ArrayList<>();
        //필요한 객체의 참조값을 담을 지역변수 미리 만들기
 	   Connection conn=null;
@@ -52,15 +52,14 @@ public class GuestDao {
 			rs=pstmt.executeQuery();
 			//반복문 돌면서 ResultSet 에 담긴 내용 추출
 			while(rs.next()) {
-				//ResultSet 에 cursor 가 위치한곳의 칼럼 정보를 얻어와서 MemberDto 객체에 담고
 				GuestDto dto = new GuestDto();
 				dto.setNum(rs.getInt("num"));
 				dto.setWriter(rs.getString("writer"));
 				dto.setContent(rs.getString("content"));
 				dto.setPwd(rs.getString("pwd"));
-				dto.setRegdate(rs.getString("regdate"));
+				dto.setRegdate(rs.getString("regdate"));//날짜도 getString() 으로 읽어온다.
 				
-				//ArrayList에 누적시키기
+				//글정보가 담긴 dto 를ArrayList 객체에 누적시키기
 				list.add(dto);
 			}
 		}catch(SQLException se) {
@@ -75,7 +74,7 @@ public class GuestDao {
 		//회원 정보가 누적된 List 객체의 참조값을 리턴한다.
 		return list;
 }
- //회원 한명의 정보를 저장하고 해당 작업의 성공여부를 리턴해주는 메소드
+ //글 하나의 정보를 DB에 저장하는 메소드
    public boolean insert(GuestDto dto) {
       
       //필요한 객체를 담을 지역 변수를 미리 만들기
@@ -207,16 +206,16 @@ public class GuestDao {
          conn = new DbcpBean().getConn();
          //실행할 sql 문
          String sql = "UPDATE board_guest"
-               + " SET writer=?, content=?, regdate=?"
+               + " SET writer=?, content=?, regdate=to_date(SYSDATE)"
                + " WHERE num=? AND pwd=?";
          //sql 문을 대신 실행해줄 PreparedStatement 객체의 참조값 얻어오기
          pstmt = conn.prepareStatement(sql);
          //sql 문이 ? 가 존재하는 미완성이라면 여기서 완성한다.
          pstmt.setString(1, dto.getWriter());
          pstmt.setString(2, dto.getContent());
-         pstmt.setString(3, dto.getRegdate());
-         pstmt.setInt(4, dto.getNum());
-         pstmt.setString(5, dto.getPwd());
+        
+         pstmt.setInt(3, dto.getNum());
+         pstmt.setString(4, dto.getPwd());
          // insert or update or delete 문을 실제 수행한다. 변화된 row 의 갯수가 리턴된다.
          rowCount = pstmt.executeUpdate();//수행하고 리턴되는값을 변수에 담는다.
       } catch (Exception e) {

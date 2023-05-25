@@ -3,12 +3,16 @@ package test.guest.dto;
 import java.util.List;
 
 public class GuestDto {
-	private int num;
+	/*
+	 * Dto의 필드 선언하기
+	 * - 필드의 type 과 필드명 정하기
+	 */
+	private int num; // 소수점이있는 숫자면 double,float을 써준다.
 	private String writer;
 	private String content;
 	private String pwd;
 	private String regdate;
-	//생성자
+	// 디폴츠 생성자
 	public GuestDto() {
 		
 	}

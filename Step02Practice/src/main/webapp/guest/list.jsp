@@ -5,10 +5,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	//MemberDao 객체의 참조값 얻어오기
-	GuestDao dao=GuestDao.getInstance();
-	//회원 목록얻어오기
-	List<GuestDto> list=dao.getList();
+	//1.전체 방명록글 목록을 얻어와서
+	List<GuestDto> list=GuestDao.getInstance().getList();
+	//응답하기
+	
 %>  
  
 <!DOCTYPE html>
@@ -21,7 +21,11 @@
 </head>
 <body>
 	<div class="container">
-		<h1>회원 목록입니다.</h1>
+		
+		<h1>방명록 글 목록</h1>
+		<div>
+			<a href="${pageContext.request.contextPath}/guest/insertform.jsp">글작성</a>
+		</div>
 		<div style="text-align:right;">	
 			<a href="insertform.jsp">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">

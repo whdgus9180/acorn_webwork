@@ -11,20 +11,20 @@
 <body>
 	<div class = "container">
 	<form action="insert.jsp" method="post">
-	<h1>작성자 추가 폼</h1>	
+	<h1>방명록 작성 폼</h1>	
      	<div class="mb-2">
 	     	<label for="name" class="form-label">작성자</label>
-	        <input type="text" class="form-control" id"=writer name="writer"/>
+	        <input type="text" class="form-control" id="writer" name="writer"/>
         </div>
-        
+        <label for="content" class="form-label">내용</label><br>
         <textarea name="content" id="content" cols="50" rows="7">내용을 입력해 주세요.</textarea>
                
         <div class="mb-2">
 	     	<label for="addr" class="form-label">비밀번호</label>
-	        <input type ="text" class="form-control" id"=pwd name="pwd"/>
+	        <input type ="text" class="form-control" id="pwd" name="pwd"/>
         </div>
         
-        <button type="submit" class="btn btn-success">추가</button>    
+        <button type="submit" class="btn btn-success">등록</button>    
          
     </div>
 </body>
