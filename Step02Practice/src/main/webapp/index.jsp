@@ -10,12 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title> 
+<title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
+	<div class ="container">
 		<h1>인덱스 페이지입니다.</h1>
-		<ul><a href="member/list.jsp">회원 목록보기</a></ul>
+		<ul><a href="guest/list.jsp" >방명록 목록보기</a></ul>
 	</div>
 </body>
-</html> 
+</html>
