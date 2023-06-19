@@ -10,17 +10,20 @@
     <h1>ref 를 이용해서 문서 객체의 참조값 얻어내기</h1> 
     <div id="app">
         <button v-on:click="clicked">눌러보셈</button>
-        <input type="text" ref="one" >
+        <input type="text" ref="one"> <!-- id를 주면 겹칠확율이 높기때문에 안쓰는게 좋다 여려명에서 작업하기떄문에 -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         let app=new Vue({
             el:"#app",
+          
             methods:{
                 clicked(){
-                    // ref="one" 인 문서객체의 참조값 
-                   console.log(this.$refs.one);
-                   this.$refs.one.value="버튼을 눌렀네?";
+                	// ref="one" 인 문서객체의 참조값 
+                    console.log(this.$refs.one);
+                    this.$refs.one.value="버튼을 눌렀네?";
+                  
+                   
                 }
             }
         });
