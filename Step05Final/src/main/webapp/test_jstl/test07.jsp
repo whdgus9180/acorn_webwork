@@ -15,9 +15,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-</head>
+</head> 
 <body>
-	<h1>JSTL funtion (EL 코드 블럭 안에서 사용하는 함수) 활용</h1>
+	<h1>JSTL function (EL 코드 블럭 안에서 사용하는 함수) 활용</h1>
 	<p> "구라" 가 포함되어 있는지 여부 : ${fn:contains(msg, '구라')}</p>
 	
 	<c:if test="${fn:contains(msg,'구라')}">
@@ -27,6 +27,7 @@
 	<p>${fn:escapeXml(str) }</p>
 	
 	<p>${content }</p>
+	
 	<!-- content 문자열에서 개행 기호를 <br> 로 바꿔서 출력 -->
 	<p>${fn:replace(content, newLine, '<br>')}</p>
 </body>
