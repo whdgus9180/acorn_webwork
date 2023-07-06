@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step01_event4.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트 테스트4</h1>
+    <div id="app">
+        <div class="box" @mouseover="change">div1</div>
+        <div class="box" @mouseover="change">div2</div>
+        <div class="box" @mouseover="change">div3</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+              
+            },
+            methods:{
+            	change(e){
+                    console.log(e);
+                    e.target.style.color="red";
+                }
+            }
+        });
+    </script>    
+</body>
+</html>
+
+
+
+
+
+
+
+

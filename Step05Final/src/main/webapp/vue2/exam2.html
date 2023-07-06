@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step02_model2.html</title>
+</head>
+<body>
+    <h1>v-model 사용하기2</h1>
+    <div id="app">        
+        <!-- 체크박스에 모델을 지정하면 체크 여부가 boolean 값으로 관리가 된다. -->
+        <input type="checkbox" v-model="isChecked">
+        
+        <p v-if="isChecked">p1</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    let app=new Vue({
+        el:"#app",
+        data:{
+            isChecked:true,
+        }
+        });
+    </script>    
+</body>
+</html>

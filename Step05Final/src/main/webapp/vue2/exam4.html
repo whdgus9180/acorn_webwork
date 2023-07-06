@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>이벤트 테스트</h1>
+	<div id="app">
+	<!-- 
+		v-on:이벤트명="methods object 에 있는 호출될 함수명"
+	 -->
+		<button v-on:click="clicked">눌러보셈</button>
+		<p ref="myParagraph"></p>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			 el:"#app",
+	            methods:{
+	                clicked(){
+	                	console.log(this.$refs.myParagraph)  ; 
+	                	this.$refs.myParagraph.innerText="버튼을 눌렀네?";
+	                 
+	                }
+	            }
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
